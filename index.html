@@ -32,8 +32,10 @@
             align-items: center;
             padding: 30px 15px;
             background-image: radial-gradient(circle at 50% 0%, rgba(79, 172, 254, 0.15), transparent 70%);
+            overflow-x: hidden;
         }
 
+        /* دخول الكارت الرئيسي بتأثير الظهور والارتفاع */
         .container {
             background: var(--card-bg);
             backdrop-filter: blur(12px);
@@ -43,6 +45,7 @@
             width: 100%;
             max-width: 550px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            animation: fadeInUp 0.8s ease-out forwards;
         }
 
         .profile-header {
@@ -50,6 +53,7 @@
             margin-bottom: 25px;
         }
 
+        /* الصورة مع تأثير التوهج النبضي (Glow Pulse) */
         .profile-img {
             width: 110px;
             height: 110px;
@@ -59,7 +63,13 @@
             padding: 3px;
             margin-bottom: 15px;
             box-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
+            animation: pulseGlow 3s infinite alternate;
+            transition: transform 0.4s ease;
         }
+
+            .profile-img:hover {
+                transform: scale(1.08) rotate(3deg);
+            }
 
         h1 {
             font-size: 24px;
@@ -83,7 +93,7 @@
             margin-bottom: 20px;
         }
 
-        /* Skills Chips */
+        /* مهارات تفاعلية تتجاوب مع الماوس */
         .skills-container {
             display: flex;
             flex-wrap: wrap;
@@ -96,12 +106,21 @@
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid var(--border-color);
             color: var(--text-main);
-            padding: 5px 12px;
+            padding: 6px 14px;
             font-size: 12px;
             border-radius: 20px;
+            transition: all 0.3s ease;
+            cursor: default;
         }
 
-        /* Action Buttons & Links */
+            .skill-tag:hover {
+                background: rgba(0, 242, 254, 0.15);
+                border-color: var(--accent-color);
+                transform: translateY(-3px);
+                color: #fff;
+            }
+
+        /* الأزرار والتأثيرات */
         .links {
             display: flex;
             flex-direction: column;
@@ -121,14 +140,25 @@
             font-size: 14px;
             font-weight: 600;
             border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
         }
+
+            .btn i {
+                transition: transform 0.3s ease;
+            }
 
             .btn:hover {
                 background: rgba(255, 255, 255, 0.08);
                 border-color: var(--accent-color);
-                transform: translateY(-2px);
+                transform: translateY(-3px);
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
             }
+
+                .btn:hover i {
+                    transform: scale(1.2);
+                }
 
         .btn-cv {
             background: var(--accent-gradient);
@@ -140,7 +170,8 @@
             .btn-cv:hover {
                 color: #000;
                 opacity: 0.95;
-                transform: translateY(-2px);
+                transform: translateY(-3px);
+                box-shadow: 0 8px 25px rgba(0, 242, 254, 0.5);
             }
 
         .btn-wa {
@@ -158,22 +189,43 @@
             font-size: 12px;
             color: var(--text-sub);
         }
+
+        /* Keyframes للأنيماشن */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulseGlow {
+            0% {
+                box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+            }
+
+            100% {
+                box-shadow: 0 0 30px rgba(0, 242, 254, 0.6);
+            }
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
         <div class="profile-header">
-            <!-- مسار اسم صورتك الموجود في مجلد img -->
             <img src="img/man.png.jpeg" alt="Mohamed Ahmed Abdel Bari" class="profile-img">
             <h1>Mohamed Ahmed Abdel Bari</h1>
             <p class="subtitle">Full-Stack & Systems Engineer</p>
             <p class="bio">
-                Passionate & impact-driven Software Engineer with 8+ years of experience in system programming, full-stack web development, and digital solutions.
+                Passionate & impact-driven Software Engineer with 8+ years of experience in system programming, full-stack web development, and digital solutions[cite: 1].
             </p>
         </div>
 
-        <!-- المهارات الأساسية من سيرتك الذاتية -->
         <div class="skills-container">
             <span class="skill-tag">C / C++</span>
             <span class="skill-tag">PHP / Laravel</span>
@@ -182,29 +234,27 @@
             <span class="skill-tag">PostgreSQL / MySQL</span>
         </div>
 
-        <!-- الأزرار والروابط السريعة -->
         <div class="links">
-            <!-- زر تحميل الـ CV مباشر -->
             <a href="Mohamed-Ahmed-Abdel-Bari-FlowCV-Cover-Letter-20260524 (1).pdf" target="_blank" download class="btn btn-cv">
                 <i class="fa-solid fa-file-arrow-down"></i> Download CV / Resume
             </a>
 
-            <!-- زر التواصل واتساب -->
             <a href="https://wa.me/201202091644" target="_blank" class="btn btn-wa">
                 <i class="fa-brands fa-whatsapp" style="color: #25D366;"></i> Contact via WhatsApp
             </a>
 
-            <!-- رابط LinkedIn -->
             <a href="https://linkedin.com/in/mohamed-ahmed-abdel-bari-a8833b32a" target="_blank" class="btn">
                 <i class="fa-brands fa-linkedin" style="color: #0a66c2;"></i> LinkedIn Profile
             </a>
 
-            <!-- رابط GitHub -->
             <a href="https://github.com/mohamed1998ahmed1" target="_blank" class="btn">
                 <i class="fa-brands fa-github"></i> GitHub Repositories
             </a>
 
-            <!-- رابط الإيميل المباشر -->
+            <a href="https://facebook.com/MohamedAbdelBariofficial" target="_blank" class="btn">
+                <i class="fa-brands fa-facebook" style="color: #1877f2;"></i> Facebook Profile
+            </a>
+
             <a href="mailto:mohamedabdelbariofficial@gmail.com" class="btn">
                 <i class="fa-solid fa-envelope" style="color: #ea4335;"></i> Send Email
             </a>
