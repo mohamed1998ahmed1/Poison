@@ -1,76 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed Abdel Bari | Full-Stack & Systems Engineer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #0a0f1d;
+            --card-bg: rgba(18, 26, 47, 0.85);
+            --accent-color: #00f2fe;
+            --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --text-main: #f1f5f9;
+            --text-sub: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.08);
+        }
 
-    <link rel="icon" href="img/icon.png" />
-    <title>Reda Tech</title>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
 
-    <link rel="stylesheet" href="style.css" />
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 15px;
+            background-image: radial-gradient(circle at 50% 0%, rgba(79, 172, 254, 0.15), transparent 70%);
+        }
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-  </head>
-  <body>
-    <header>
-      <nav class="container">
-        <a href="#" class="logo"><span>Reda</span> Tech</a>
+        .container {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            padding: 40px 30px;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 550px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
 
-        <div class="nav_links">
-          <a href="#">Home</a>
-          <a href="#">Services</a>
-          <a href="#">About</a>
-          <a href="#">Projects</a>
-          <a href="#">Contact</a>
+        .profile-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
 
-          <span onclick="Open_CloseMenu()" class="close_menu"><i class="fa-solid fa-xmark"></i></span>
+        .profile-img {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent-color);
+            padding: 3px;
+            margin-bottom: 15px;
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
+        }
+
+        h1 {
+            font-size: 24px;
+            color: var(--text-main);
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            color: var(--accent-color);
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .bio {
+            font-size: 13.5px;
+            color: var(--text-sub);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        /* Skills Chips */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+
+        .skill-tag {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 5px 12px;
+            font-size: 12px;
+            border-radius: 20px;
+        }
+
+        /* Action Buttons & Links */
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 13px 20px;
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--text-main);
+            text-decoration: none;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+            .btn:hover {
+                background: rgba(255, 255, 255, 0.08);
+                border-color: var(--accent-color);
+                transform: translateY(-2px);
+            }
+
+        .btn-cv {
+            background: var(--accent-gradient);
+            color: #000;
+            border: none;
+            box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
+        }
+
+            .btn-cv:hover {
+                color: #000;
+                opacity: 0.95;
+                transform: translateY(-2px);
+            }
+
+        .btn-wa {
+            border-color: rgba(37, 211, 102, 0.4);
+        }
+
+            .btn-wa:hover {
+                background: rgba(37, 211, 102, 0.1);
+                border-color: #25D366;
+            }
+
+        footer {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 12px;
+            color: var(--text-sub);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="profile-header">
+            <!-- مسار اسم صورتك الموجود في مجلد img -->
+            <img src="img/man.png.jpeg" alt="Mohamed Ahmed Abdel Bari" class="profile-img">
+            <h1>Mohamed Ahmed Abdel Bari</h1>
+            <p class="subtitle">Full-Stack & Systems Engineer</p>
+            <p class="bio">
+                Passionate & impact-driven Software Engineer with 8+ years of experience in system programming, full-stack web development, and digital solutions.
+            </p>
         </div>
 
-        <div class="btns">
-          <a href="img/hero-layer.png" class="btn" download>Download CV</a>
-          <span onclick="Open_CloseMenu()" class="open_menu"><i class="fa-solid fa-bars"></i></span>
+        <!-- المهارات الأساسية من سيرتك الذاتية -->
+        <div class="skills-container">
+            <span class="skill-tag">C / C++</span>
+            <span class="skill-tag">PHP / Laravel</span>
+            <span class="skill-tag">C# / .NET</span>
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">PostgreSQL / MySQL</span>
         </div>
-      </nav>
-    </header>
 
-    <section class="hero">
-      <div class="container">
-        <div class="information">
-          <h1>
-            Hey <img src="img/harnd.png" alt="" />, I'm <br />
-            Richard Brian
-          </h1>
-
-          <p>
-            I'm creative designer based in USA, and I'm <br />
-            very passionate and dedicated to my work. Say Hello
-          </p>
-
-          <div class="links_section">
-            <a href="#">
-              <span>Services</span>
-              <div class="icon_list">
-                <img src="img/figma.png" alt="" />
-                <img src="img/wordpress.png" alt="" />
-              </div>
+        <!-- الأزرار والروابط السريعة -->
+        <div class="links">
+            <!-- زر تحميل الـ CV مباشر -->
+            <a href="Mohamed-Ahmed-Abdel-Bari-FlowCV-Cover-Letter-20260524 (1).pdf" target="_blank" download class="btn btn-cv">
+                <i class="fa-solid fa-file-arrow-down"></i> Download CV / Resume
             </a>
-            <a href="#">
-              <span>Portfolio</span>
-              <img src="img/laptop.png" alt="" />
+
+            <!-- زر التواصل واتساب -->
+            <a href="https://wa.me/201202091644" target="_blank" class="btn btn-wa">
+                <i class="fa-brands fa-whatsapp" style="color: #25D366;"></i> Contact via WhatsApp
             </a>
-            <a href="#">
-              <span>About</span>
-              <img class="icon_about" src="img/about.png" alt="" />
+
+            <!-- رابط LinkedIn -->
+            <a href="https://linkedin.com/in/mohamed-ahmed-abdel-bari-a8833b32a" target="_blank" class="btn">
+                <i class="fa-brands fa-linkedin" style="color: #0a66c2;"></i> LinkedIn Profile
             </a>
-          </div>
+
+            <!-- رابط GitHub -->
+            <a href="https://github.com/mohamed1998ahmed1" target="_blank" class="btn">
+                <i class="fa-brands fa-github"></i> GitHub Repositories
+            </a>
+
+            <!-- رابط الإيميل المباشر -->
+            <a href="mailto:mohamedabdelbariofficial@gmail.com" class="btn">
+                <i class="fa-solid fa-envelope" style="color: #ea4335;"></i> Send Email
+            </a>
         </div>
 
-        <div class="div_img">
-            <img src="img/man.png" alt="">
-        </div>
-      </div>
-    </section>
+        <footer>
+            <p>© 2026 Mohamed Abdel Bari. All rights reserved.</p>
+        </footer>
+    </div>
 
-    <script src="main.js"></script>
-  </body>
+</body>
 </html>
