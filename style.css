@@ -1,0 +1,312 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400;500;600;700;800&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body{
+    background: url(img/hero-layer.png),#1a2222;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    font-family: 'Kanit',sans-serif;
+}
+.container{
+    width: 90%;
+    margin: 0 auto;
+    max-width: 1350px;
+}
+img{
+    width: 100%;
+}
+
+
+.btn{
+    padding: 12px 30px;
+    background: #28e98c;
+    border-radius: 5px;
+    color: #1a2222;
+    border: 1px solid #28e98c;
+    transition: 0.3s;
+}
+.btn:hover{
+    color: #fff;
+    background: transparent;
+}
+
+
+
+/* Start Header */ 
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+}
+header nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+}
+header nav .logo{
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+}
+header nav .logo span{
+    color: #28e98c;
+}
+
+header nav .nav_links{
+    display: flex;
+    gap: 40px;
+}
+header nav .nav_links a{
+    color: #fff;
+    transition: 0.3s;
+}
+header nav .nav_links a:hover{
+    color: #28e98c;
+}
+
+/* STart Hero */
+
+.hero{
+    height: 100vh;
+}
+.hero .container{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hero .information{
+    width: 50%;
+}
+
+.hero .information h1{
+    font-size: 80px;
+    color: #fff;
+    font-weight: 500;
+    line-height: 1.1;
+    margin-bottom: 15px;
+}
+.hero .information h1 img{
+    width: 50px;
+    margin: 0 -10px;
+    animation-name: wave-animation;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+    transform-origin: 70% 70%;
+}
+
+@keyframes wave-animation {
+    0% {
+        transform: rotate(0.0deg);
+    }
+    10% {
+        transform: rotate(14.0deg);
+    }
+    20% {
+        transform: rotate(-8.0deg);
+    }
+    30% {
+        transform: rotate(14.0deg);
+    }
+    40% {
+        transform: rotate(-4.0deg);
+    }
+    50% {
+        transform: rotate(10.0deg);
+    }
+    60% {
+        transform: rotate(0.0deg);
+    }
+    100% {
+        transform: rotate(0.0deg);
+    }
+}
+
+.hero .information p{
+    font-size: 18px;
+    color: #cccccc;
+}
+
+.hero .information .links_section{
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+}
+
+.hero .information .links_section a{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 30px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+    width: 31%;
+    border: 1px dashed rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    text-transform: uppercase;
+}
+.hero .information .links_section a span{
+    margin-bottom: 15px;
+}
+
+.hero .information .links_section a .icon_list{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    padding: 10px 20px;
+}
+.hero .information .links_section a .icon_list img{
+    width: 40px;
+}
+.hero .information .icon_about{
+    width: 80%;
+    margin: 0 auto;
+}
+
+
+.hero .div_img{
+    width: 35%;
+    position: relative;
+}
+.hero .div_img::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 72%;
+    width: 102%;
+    z-index: -1;
+    border-radius: 10px;
+    background: #28e98c;
+    opacity: 0.1;
+}
+.hero .div_img::after{
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%) rotate(11deg);
+    background: url(img/shape1.png);
+    height: 100%;
+    width: 105%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: -1;
+    margin: 0;
+    margin-top: 11%;
+}
+
+.hero .div_img img{
+    display: block;
+}
+.open_menu,
+.close_menu{
+    display: none;
+}
+
+@media (max-width:1024px) {
+    header{
+        background: #1a2222;
+    }
+    header nav .nav_links{
+        position: fixed;
+        top: 0;
+        right: -400px;
+        bottom: 0;
+        width: 400px;
+        background: #1a2222;
+        border-left: 1px solid rgba(122, 122, 122, 0.2);
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        padding-top: 100px;
+        transition: 0.3s ease-in-out;
+    }
+    header nav .nav_links.active{
+        right:0; 
+    }
+    .close_menu{
+        display: block;
+        color: #28e98c;
+        font-size: 30px;
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        cursor: pointer;
+    }
+    .btns{
+        display: flex;
+        gap: 30px;
+        align-items: center;
+    }
+    .open_menu{
+        display: block;
+        font-size: 35px;
+        color: #28e98c;
+    }
+
+    .hero .container{
+        flex-direction: column;
+        gap: 70px;
+        padding-top: 120px;
+    }
+    .hero .information{
+        width: 100%;
+    }
+    .hero .div_img{
+        width: 50%;
+    }
+}
+
+@media (max-width:600px){
+    header nav .nav_links{
+        width: 100%;
+        right: -100%;
+    }
+    header .btn{
+        display: none;
+    }
+
+    .hero .information h1{
+        font-size: 50px;
+    }
+    .hero .information p{
+        font-size: 16px;
+    }
+    .hero .information .links_section{
+        width: 100%;
+    }
+    .hero .information .links_section a{
+        padding: 10px;
+    }
+    .hero .information .links_section a span{
+        font-size: 12px;
+    }
+    .hero .information .links_section a .icon_list{
+        padding: 0;
+        border: none;
+    }
+    .hero .information .links_section a .icon_list img{
+        width: 45%;
+    }
+    .hero .div_img{
+        width: 70%;
+    }
+}
